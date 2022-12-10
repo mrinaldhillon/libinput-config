@@ -52,6 +52,12 @@ else
 	)
 endif
 
+libinput_dep = dependency('libinput')
+libudev_dep = dependency('libudev')
+if (libinput_dep.version().version_compare('>=1.21'))
+	add_project_arguments('-DLIBINPUT_HAS_DWTP=1', language: 'c')
+endif
+
 shared_library('input-config',
 	[
 		'src/hooks/gestures.c',
@@ -64,11 +70,11 @@ shared_library('input-config',
 	],
 	
 	dependencies: [
-		dependency('libinput').partial_dependency(includes: true),
-		dependency('libudev').partial_dependency(includes: true),
+		libinput_dep.partial_dependency(includes: true),
+		libudev_dep.partial_dependency(includes: true),
 		cc.find_library('dl', required: false)
 	],
-	
+
 	link_args: '-Wl,--unresolved-symbols=ignore-all',
 	
 	include_directories: include_directories('src'),

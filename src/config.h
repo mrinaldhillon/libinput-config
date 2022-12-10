@@ -54,7 +54,9 @@ struct libinput_config {
 	config_option(elc(scroll_method), scroll_method, scroll_set_method);
 	config_option(uint32_t, scroll_button, scroll_set_button);
 	config_option(elc(dwt_state), dwt, dwt_set_enabled);
+#ifdef LIBINPUT_HAS_DWTP
 	config_option(elc(dwtp_state), dwtp, dwtp_set_enabled);
+#endif
 	
 	double scroll_factor_x;
 	double scroll_factor_y;
