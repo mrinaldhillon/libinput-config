@@ -250,7 +250,9 @@ void libinput_config_init(void) {
 		fancy_binary_preset("scroll-button-lock", scroll_button_lock, SCROLL_BUTTON_LOCK)
 		fancy_binary_preset("middle-emulation", middle_emulation, MIDDLE_EMULATION)
 		fancy_binary_preset("dwt", dwt, DWT)
+#ifdef LIBINPUT_HAS_DWTP
 		fancy_binary_preset("dwtp", dwtp, DWTP)
+#endif
 		
 		enum_preset_2("tap-button-map", tap_button_map,
 			"lrm", LIBINPUT_CONFIG_TAP_MAP_LRM,

@@ -55,8 +55,10 @@ struct libinput_config libinput_config = {
 	config_option(scroll_method, scroll_set_method),
 	config_option(scroll_button, scroll_set_button),
 	config_option(dwt, dwt_set_enabled),
+#ifdef LIBINPUT_HAS_DWTP
 	config_option(dwtp, dwtp_set_enabled),
-	
+#endif
+
 	.scroll_factor_x = 1,
 	.scroll_factor_y = 1,
 	
@@ -85,7 +87,9 @@ void libinput_real_init(void) {
 	load_function(scroll_set_method);
 	load_function(scroll_set_button);
 	load_function(dwt_set_enabled);
+#ifdef LIBINPUT_HAS_DWTP
 	load_function(dwtp_set_enabled);
+#endif
 }
 
 replace_function(tap_set_enabled, tap, elc(tap_state));
@@ -102,7 +106,10 @@ replace_function(middle_emulation_set_enabled, middle_emulation, elc(middle_emul
 replace_function(scroll_set_method, scroll_method, elc(scroll_method));
 replace_function(scroll_set_button, scroll_button, uint32_t);
 replace_function(dwt_set_enabled, dwt, elc(dwt_state));
+
+#ifdef LIBINPUT_HAS_DWTP
 replace_function(dwtp_set_enabled, dwtp, elc(dwtp_state));
+#endif
 
 void libinput_config_device(struct libinput_device *device) {
 	print("configuring device '%s'", libinput_device_get_name(device));
@@ -121,5 +128,7 @@ void libinput_config_device(struct libinput_device *device) {
 	apply_config(scroll_method, scroll_set_method);
 	apply_config(scroll_button, scroll_set_button);
 	apply_config(dwt, dwt_set_enabled);
+#ifdef LIBINPUT_HAS_DWTP
 	apply_config(dwtp, dwtp_set_enabled);
+#endif
 }
