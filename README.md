@@ -89,8 +89,12 @@ Note:
 * In contrast to the touchpad `scroll-factor` that always works, the
   mouse `discrete-scroll-factor` only works if your compositor
   supports high-resolution scroll wheels.
+* `scroll-button` excepts a key code from the [Linux input event code
+  list] which is incompatible with the one used by X11.
 * For obvious reasons, `remap-key` can be used multiple times to remap
   different keys.
+
+[Linux input event code list]: https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h#L64
 
 ## How to uninstall
 
