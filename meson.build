@@ -54,6 +54,7 @@ endif
 
 libinput_dep = dependency('libinput')
 libudev_dep = dependency('libudev')
+
 if (libinput_dep.version().version_compare('>=1.21'))
 	add_project_arguments('-DLIBINPUT_HAS_DWTP=1', language: 'c')
 endif
@@ -70,8 +71,8 @@ shared_library('input-config',
 	],
 	
 	dependencies: [
-		libinput_dep.partial_dependency(includes: true),
-		libudev_dep.partial_dependency(includes: true),
+		libinput_dep.partial_dependency(compile_args: true),
+		libudev_dep.partial_dependency(compile_args: true),
 		cc.find_library('dl', required: false)
 	],
 

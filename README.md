@@ -10,6 +10,7 @@ Before the install, make sure the following prerequisites are met:
   Synaptics, libinput-config won't work.
 * You have the libinput header files installed. They usually come in a
   package called something like `libinput-dev` or `libinput-devel`.
+  You may also need to do the same for libudev.
 * You have the Meson build system insalled.
 * You have written a working config file (see [How to use] for more
   details).
