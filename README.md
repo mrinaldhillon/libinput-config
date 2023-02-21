@@ -82,11 +82,11 @@ Note:
 * `override-compositor` has no effect on the following settings. If
   you configure them in both your compositor and libinput-config,
   they'll be applied at the same time:
-	* `scroll-factor`
-	* `discrete-scroll-factor`
-	* `speed`
-	* `gesture-speed`
-	* `remap-key`
+    * `scroll-factor`
+    * `discrete-scroll-factor`
+    * `speed`
+    * `gesture-speed`
+    * `remap-key`
 * In contrast to the touchpad `scroll-factor` that always works, the
   mouse `discrete-scroll-factor` only works if your compositor
   supports high-resolution scroll wheels.

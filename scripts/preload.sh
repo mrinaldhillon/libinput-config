@@ -4,5 +4,5 @@ LIB="${1}/${2}.so"
 PRELOAD="${DESTDIR}/etc/ld.so.preload"
 
 if test -z $(grep ${LIB} ${PRELOAD} 2> /dev/null); then
-	echo ${LIB} >> ${PRELOAD}
+    echo ${LIB} >> ${PRELOAD}
 fi
