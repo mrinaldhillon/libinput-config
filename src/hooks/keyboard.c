@@ -11,6 +11,6 @@ uint32_t libinput_event_keyboard_get_key(
 ) {
     get_key_t get_key =
         hook("libinput_event_keyboard_get_key");
-    
+
     return libinput_keymap_transform(get_key(event));
 }

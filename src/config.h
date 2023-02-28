@@ -37,9 +37,9 @@ asm (".symver dlsym, dlsym@GLIBC_2.2.5");
 
 struct libinput_config {
     bool configured;
-    
+
     bool override_compositor;
-    
+
     config_option(elc(tap_state), tap, tap_set_enabled);
     config_option(elc(tap_button_map), tap_button_map, tap_set_button_map);
     config_option(elc(drag_state), drag, tap_set_drag_enabled);
@@ -57,16 +57,16 @@ struct libinput_config {
 #ifdef LIBINPUT_HAS_DWTP
     config_option(elc(dwtp_state), dwtp, dwtp_set_enabled);
 #endif
-    
+
     double scroll_factor_x;
     double scroll_factor_y;
-    
+
     double discrete_scroll_factor_x;
     double discrete_scroll_factor_y;
-    
+
     double speed_x;
     double speed_y;
-    
+
     double gesture_speed_x;
     double gesture_speed_y;
 };

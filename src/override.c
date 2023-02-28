@@ -38,9 +38,9 @@
 
 struct libinput_config libinput_config = {
     .configured = false,
-    
+
     .override_compositor = false,
-    
+
     config_option(tap, tap_set_enabled),
     config_option(tap_button_map, tap_set_button_map),
     config_option(drag, tap_set_drag_enabled),
@@ -61,13 +61,13 @@ struct libinput_config libinput_config = {
 
     .scroll_factor_x = 1,
     .scroll_factor_y = 1,
-    
+
     .discrete_scroll_factor_x = 1,
     .discrete_scroll_factor_y = 1,
-    
+
     .speed_x = 1,
     .speed_y = 1,
-    
+
     .gesture_speed_x = 1,
     .gesture_speed_y = 1
 };
@@ -113,7 +113,7 @@ replace_function(dwtp_set_enabled, dwtp, elc(dwtp_state));
 
 void libinput_config_device(struct libinput_device *device) {
     print("configuring device '%s'", libinput_device_get_name(device));
-    
+
     apply_config(tap, tap_set_enabled);
     apply_config(tap_button_map, tap_set_button_map);
     apply_config(drag, tap_set_drag_enabled);

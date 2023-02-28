@@ -14,9 +14,9 @@ bool libinput_keymap_set(uint32_t source, uint32_t destination) {
     if (source >= KEY_CODE_COUNT || destination >= KEY_CODE_COUNT) {
         return false;
     }
-    
+
     libinput_keymap[source] = destination;
-    
+
     return true;
 }
 
@@ -24,12 +24,12 @@ uint32_t libinput_keymap_transform(uint32_t source) {
     if (libinput_keymap == NULL || source >= KEY_CODE_COUNT) {
         return source;
     }
-    
+
     uint32_t destination = libinput_keymap[source];
-    
+
     if (destination != 0) {
         return destination;
     }
-    
+
     return source;
 }
