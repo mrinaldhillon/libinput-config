@@ -3,7 +3,7 @@ Wayland compositor doesn't have a certain config or has none.
 
 ## How to build and install
 
-Before the install, make sure the following prerequisites are met:
+Before installing, make sure the following prerequisites are met:
 
 * You're running an X11 server or a Wayland compositor that uses
   libinput for input handling. If it uses another library such as
@@ -11,7 +11,7 @@ Before the install, make sure the following prerequisites are met:
 * You have the libinput header files installed. They usually come in a
   package called something like `libinput-dev` or `libinput-devel`.
   You may also need to do the same for libudev.
-* You have the Meson build system insalled.
+* You have the Meson build system installed.
 * You have written a working config file (see [How to use] for more
   details).
 
@@ -27,13 +27,16 @@ sudo ninja install
 ```
 
 If you're using a C library that's not glibc, uncomment the third
-line. (#12)
+line. ([#12])
 
 If you're using Snap and seeing error messages when launching apps,
-uncomment the fourth line. (#13)
+uncomment the fourth line. ([#13])
 
 After you compiled and installed the library, you need to relogin or
 reboot in order for the effect to take place.
+
+[#12]: https://gitlab.com/warningnonpotablewater/libinput-config/-/issues/12
+[#13]: https://gitlab.com/warningnonpotablewater/libinput-config/-/issues/13
 
 ## How to use
 
@@ -61,6 +64,7 @@ click-method={none,button-areas,clickfinger}
 middle-emulation={disabled,enabled}
 scroll-method={none,two-fingers,edge,on-button-down}
 scroll-button=[number]
+scroll-button-lock={disabled,enabled}
 dwt={disabled,enabled}
 scroll-factor=[number]
 scroll-factor-x=[number]
@@ -90,12 +94,12 @@ Note:
 * In contrast to the touchpad `scroll-factor` that always works, the
   mouse `discrete-scroll-factor` only works if your compositor
   supports high-resolution scroll wheels.
-* `scroll-button` excepts a key code from the [Linux input event code
+* `scroll-button` accepts a key code from the [Linux input event code
   list] which is incompatible with the one used by X11.
 * For obvious reasons, `remap-key` can be used multiple times to remap
   different keys.
 
-[Linux input event code list]: https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h#L64
+[Linux input event code list]: https://github.com/torvalds/linux/blob/bb7c241fae6228e89c0286ffd6f249b3b0dea225/include/uapi/linux/input-event-codes.h#L355
 
 ## How to uninstall
 
