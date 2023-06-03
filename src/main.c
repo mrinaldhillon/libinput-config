@@ -77,7 +77,7 @@ static struct keyfile_pair keyfile_get_pair(FILE *file) {
 #define fancy_values_end(config) values_end(config##_configured)
 
 #define key(a) else if (cmp(pair.key, a))
-#define value(a) if (cmp(pair.value, a))
+#define value(a) else if (cmp(pair.value, a))
 
 #define invalid_key() print("warning: invalid setting key")
 #define invalid_value() print("warning: invalid setting value")
