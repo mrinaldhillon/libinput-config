@@ -128,3 +128,7 @@ fallback is used instead.
 ## Inspiration
 
 * [libinput-touchpad-scroll-fix](https://gitlab.com/warningnonpotablewater/libinput-touchpad-scroll-fix)
+
+## License
+
+[ISC License](LICENSE).
