@@ -1,8 +1,9 @@
-# Maintainer needed
+# To be deprecated
 
-Back when I made this hack, I didn't expect so many people to actually
-use it. Unfortunately, I'm no longer able to maintain it on my own.
-Your help is always welcome.
+This hack will soon be deprecated when libinput's own [Lua plugin
+system] is out.
+
+[Lua plugin system]: https://gitlab.freedesktop.org/libinput/libinput/-/merge_requests/1192
 
 ---
 
