@@ -3,7 +3,7 @@
 This hack will soon be deprecated when libinput's own [Lua plugin
 system] is out.
 
-[Lua plugin system]: https://gitlab.freedesktop.org/libinput/libinput/-/merge_requests/1192
+[Lua plugin system]: https://wayland.freedesktop.org/libinput/doc/latest/lua-plugins.html
 
 ---
 
