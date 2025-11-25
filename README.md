@@ -1,7 +1,9 @@
-# To be deprecated
+# This project is no longer developed
 
-This hack will soon be deprecated when libinput's own [Lua plugin
-system] is out.
+Since I wrote this hack, libinput has introduced its own, much cleaner
+solution for fixing broken devices — a [Lua plugin system]. This
+project will no longer receive updates, and it'll be preserved in the
+current form indefinitely.
 
 [Lua plugin system]: https://wayland.freedesktop.org/libinput/doc/latest/lua-plugins.html
 
