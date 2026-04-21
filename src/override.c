@@ -55,6 +55,7 @@ struct libinput_config libinput_config = {
     config_option(scroll_method, scroll_set_method),
     config_option(scroll_button, scroll_set_button),
     config_option(dwt, dwt_set_enabled),
+    config_option(dwt_timeout, dwt_set_timeout),
 #ifdef LIBINPUT_HAS_DWTP
     config_option(dwtp, dwtp_set_enabled),
 #endif
@@ -87,6 +88,7 @@ void libinput_real_init(void) {
     load_function(scroll_set_method);
     load_function(scroll_set_button);
     load_function(dwt_set_enabled);
+    load_function(dwt_set_timeout);
 #ifdef LIBINPUT_HAS_DWTP
     load_function(dwtp_set_enabled);
 #endif
@@ -106,6 +108,7 @@ replace_function(middle_emulation_set_enabled, middle_emulation, elc(middle_emul
 replace_function(scroll_set_method, scroll_method, elc(scroll_method));
 replace_function(scroll_set_button, scroll_button, uint32_t);
 replace_function(dwt_set_enabled, dwt, elc(dwt_state));
+replace_function(dwt_set_timeout, dwt_timeout, uint32_t);
 
 #ifdef LIBINPUT_HAS_DWTP
 replace_function(dwtp_set_enabled, dwtp, elc(dwtp_state));
@@ -128,6 +131,7 @@ void libinput_config_device(struct libinput_device *device) {
     apply_config(scroll_method, scroll_set_method);
     apply_config(scroll_button, scroll_set_button);
     apply_config(dwt, dwt_set_enabled);
+    apply_config(dwt_timeout, dwt_set_timeout);
 #ifdef LIBINPUT_HAS_DWTP
     apply_config(dwtp, dwtp_set_enabled);
 #endif

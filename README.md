@@ -77,6 +77,7 @@ scroll-method={none,two-fingers,edge,on-button-down}
 scroll-button=[number]
 scroll-button-lock={disabled,enabled}
 dwt={disabled,enabled}
+dwt-timeout=number
 scroll-factor=[number]
 scroll-factor-x=[number]
 scroll-factor-y=[number]

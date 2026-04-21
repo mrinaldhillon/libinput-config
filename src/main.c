@@ -22,6 +22,11 @@ static bool parse_number(const char *string, double *number) {
     return true;
 }
 
+static bool parse_uint_number(const char *string, uint32_t *number) {
+    *number = atoi(string);
+    return true;
+}
+
 static struct keyfile_pair keyfile_get_pair(FILE *file) {
     struct keyfile_pair pair = {
         .key = NULL,
@@ -148,6 +153,12 @@ static struct keyfile_pair keyfile_get_pair(FILE *file) {
         &libinput_config.config\
     )
 
+#define fancy_parse_uint_number(config)\
+    bool success = parse_uint_number(\
+        pair.value,\
+        &libinput_config.config\
+    )
+
 #define check_parse_failure(config, default_value)\
     if (!success) {\
         invalid_value();\
@@ -164,6 +175,14 @@ static struct keyfile_pair keyfile_get_pair(FILE *file) {
         check_parse_failure(config##_configured, false)\
     }
 
+#define simple_parse_uint_preset(name, config)\
+    key(name) {\
+        fancy_values_start(config)\
+        \
+        fancy_parse_uint_number(config);\
+        \
+        check_parse_failure(config##_configured, false)\
+    }
 #define hacky_parse_preset(name, config)\
     key(name) {\
         fancy_parse_number(config);\
@@ -277,6 +296,7 @@ void libinput_config_init(void) {
             "on-button-down", LIBINPUT_CONFIG_SCROLL_ON_BUTTON_DOWN
         )
 
+        simple_parse_uint_preset("dwt-timeout", dwt_timeout)
         simple_parse_preset("accel-speed", accel_speed)
 
         xy_parse_preset("scroll-factor", scroll_factor)
